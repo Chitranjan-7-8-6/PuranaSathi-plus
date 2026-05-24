@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Product Lisiting Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="style4.css">
+   
+</head>
+
+<body onload="showstudentdata()">
+   <header>
+    <div class="logo">Purana Sathi</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="find-friend.html">Find Friend</a>
+      <a href="add-friend.html">Add Friend</a>
+      <a href="profile.html">Profile</a>
+      <a href="about-us.html">About us</a>
+      <a href="contact-us.html">Contact us</a>
+    </nav>
+  </header>
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="text-end p-2">
+        <a href="add-friend.html" class="btn btn-primary"> Add Friend</a>
+        <a href="add-friend.html" class="btn btn-primary text-end"> Back</a>
+      </div>
+
+      <div class="col-lg-12 form">
+        <h2 class="text-center bg-warning">Your Friends Added Here </h2>
+
+        <table border="4" width="100%" cellpadding="5px" align="center">
+          <thead>
+            <tr>
+              <th>Sr.NO</th>
+              <th> Name</th>
+              <th>Email </th>
+              <th>Course</th>
+              <th>Duration</th>
+              <th>Passing-Year</th>
+              <th>Address</th>
+              <th>Action</th>
+
+            </tr>
+          </thead>
+          <tbody id="studentlist">
+
+          </tbody>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    function showstudentdata() {
+      let tabledata = document.getElementById("studentlist");
+      tabledata.innerHTML = "";
+      let student = JSON.parse(localStorage.getItem("studentData"));
+      console.log(student);
+
+      student.forEach((sdataobject, index) => {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+                              <td>${index + 1}</td>
+                              <td>${sdataobject.name}</td>
+                              <td>${sdataobject.email}</td>
+                              <td>${sdataobject.course}</td>
+                              <td>${sdataobject.duration}</td>
+                              <td>${sdataobject.passing}</td>
+                              <td>${sdataobject.address}</td>
+                              <td><button onclick="deletestudent(${index})">DELETE</button></td>
+                          `;
+
+        tabledata.appendChild(row);
+      });
+
+    }
+
+
+    function deletestudent(studentIndex) {
+
+      let a = confirm("Are you sure You want to delete this record!");
+
+      if (a == true) {
+        let student = JSON.parse(localStorage.getItem("studentData")) || [];
+
+        //remove one by one using productIndex
+        student.splice(studentIndex, 1);
+
+        localStorage.setItem("studentData", JSON.stringify(student));
+
+        showstudentdata();
+      }
+
+    }
+
+    function logoutHandle() {
+      localStorage.removeItem("regUser");
+      window.location.href = "reg.html";
+
+    }
+  </script>
+
+
+</body>
+
+</html>

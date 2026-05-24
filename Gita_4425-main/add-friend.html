@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Add Student Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="style4.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    /* MAIN CONTAINER */
+    .container {
+      margin-top: 30px;
+      padding: 20px;
+    }
+
+    /* FORM BOX */
+    .form {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 40%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    #msg2 {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    /* LABEL */
+    .form-label {
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* INPUT FIELDS */
+    .form-control,
+    select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      outline: none;
+    }
+
+    .form-control:focus,
+    select:focus {
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    }
+
+    /* BUTTONS */
+    button {
+      padding: 10px 20px;
+      border-radius: 8px !important;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #0d6efd;
+      color: white;
+    }
+
+    .btn-danger {
+      background: #dc3545;
+      color: white;
+    }
+
+    /* MOBILE RESPONSIVE */
+    @media(max-width: 768px) {
+
+      .form {
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* SMALL MOBILE */
+    @media(max-width: 480px) {
+
+      .form {
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .form-control,
+      select {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Purana Sathi</div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="find-friend.html">Find Friend</a>
+      <a href="add-friend.html">Add Friend</a>
+      <a href="profile.html">Profile</a>
+      <a href="about-us.html">About us</a>
+      <a href="contact-us.html">Contact us</a>
+    </nav>
+  </header>
+
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+
+      <div class="col-lg-4 form">
+        <h2>Add Friend Here</h2>
+        <h5 id="msg2"></h5>
+
+        <form id="frmstudent">
+          <div class="mb-3">
+            <label class="form-label"> Name :</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your  name" name="name" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Email :</label>
+            <input class="form-control" type="email" id="email" placeholder="Enter your email" name="email" required>
+          </div>
+
+          <div>
+            <label class="form-label">course :</label>
+            <select name="course" id="course">
+              <option>---select Course--</option>
+              <option value="BCA">BCA</option>
+              <option value="BBA">BBA</option>
+              <option value="MCA">MCA</option>
+              <option value="MBA">MBA</option>
+              <option value="BCA">B.com</option>
+              <option value="BCA">M.com</option>
+              <option value="BCA">P.hd</option>
+              <option value="B.TECH">B.TECH</option>
+
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label">Duration :</label>
+            <select name="duration" id="duration">
+              <option>---Course Duration--</option>
+              <option value="1 Year">1 YEAR</option>
+              <option value="2 YEAR">2 YEAR</option>
+              <option value="3 YEAR">3 YEAR</option>
+              <option value="4 YEAR">4 YEAR</option>
+              <option value="5 YEAR">5 YEAR</option>
+
+            </select>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Passing_year :</label>
+            <input class="form-control" type="text" id="passing" placeholder="Enter your Passing_year " name="passing"
+              required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Address :</label>
+            <input class="form-control" type="text" id="address" placeholder="Enter your address " name="address"
+              required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Add Student</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="reset" class="btn btn-danger">Clear</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    let frm = document.getElementById("frmstudent");
+    frm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let course = document.getElementById("course").value;
+      let duration = document.getElementById("duration").value;
+      let passing = document.getElementById("passing").value;
+      let address = document.getElementById("address").value;
+
+
+
+      const allstudent = JSON.parse(localStorage.getItem("studentData")) || [];
+
+      const addstudent = {
+        name,
+        email,
+        course,
+        duration,
+        passing,
+        address
+      };
+
+      allstudent.push(addstudent);
+
+
+      localStorage.setItem("studentData", JSON.stringify(allstudent));
+
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("course").value = "";
+      document.getElementById("duration").value = "";
+      document.getElementById("passing").value = "";
+      document.getElementById("address").value = "";
+
+      document.getElementById("msg2").innerHTML = "<b> New Friend Added Successfully</b>";
+      document.getElementById("msg2").style.color = "green";
+
+
+    })
+
+    function logoutHandle() {
+      localStorage.removeItem("regUser");
+      window.location.href = "reg.html";
+
+    }
+  </script>
+
+  <script src="./js/script.js"></script>
+
+
+</body>
+
+</html>

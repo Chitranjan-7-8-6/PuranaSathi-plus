@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="./css/parsley.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        
+
+        .form {
+            width: 100%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.8s ease;
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: red;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 15px;
+        }
+
+        .form-control:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+        }
+
+        button {
+            width: 48%;
+            padding: 10px;
+            border-radius: 10px !important;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+        .btn-danger {
+            border: none;
+        }
+
+        p {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Tablet View */
+        @media (max-width: 992px) {
+            .form {
+                padding: 25px;
+            }
+        }
+
+        /* Mobile View */
+        @media (max-width: 576px) {
+            .form {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .form-control {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            button {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+   <div class="container">
+    <div class="row justify-content-center align-items-center">
+
+        <div class="col-lg-4 form">
+                <h2 class="text-center">Register Here</h2>
+                <form id="frm" data-parsley-validate>
+                    <div class="mb-3">
+                        <label class="form-label"> Name :</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your  name" name="name"
+                            required data-parsley-required-message="Enter Your  Name" data-parsley-pattern="^[A-Za-z\s]+$"
+                            data-parsley-pattern-message="Enter only character"
+                            data-parsley-error-container="#name-error">
+                        <p id="name-error"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">User Name :</label>
+                        <input class="form-control" type="text" id="uname" placeholder="Enter your user name"
+                            name="uname" required data-parsley-required-message="Enter Your user Name"
+                            data-parsley-pattern="^[A-Za-z0-9]+$"
+                            data-parsley-pattern-message="Enter only character or with digit"
+                            data-parsley-error-container="#uname-error">
+                        <p id="uname-error"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Course :</label>
+                        <select class="form-control" name="course" id="course" required>
+                            <option value="">----Select Course----</option>
+                            <option value="BCA">BCA</option>
+                            <option value="BBA">BBA</option>
+                            <option value="MBA">MBA</option>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="B.sc (IT)">B.sc (IT)</option>
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Year :</label>
+                        <input class="form-control" type="text" id="year" placeholder="Enter your passing year"
+                            name="year" required data-parsley-required-message="Enter Your passing year"
+                            data-parsley-pattern="^[0-9]+$" data-parsley-pattern-message="Enter only digit as 2026"
+                            data-parsley-error-container="#year-error">
+                        <p id="year-error"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label"> Address :</label>
+                        <input class="form-control" type="text" id="address" placeholder="Enter your Address " required>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Phone :</label>
+                        <input class="form-control" type="text" id="phone" placeholder="Enter your phone " name="phone"
+                            required data-parsley-required-message="Enter Your phone number"
+                            data-parsley-pattern="^[0-9]+$" data-parsley-pattern-message="Enter only digits"
+                            data-parsley-error-container="#phone-error">
+                        <p id="phone-error"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email :</label>
+                        <input class="form-control" type="email" id="email" placeholder="Enter your email" name="email"
+                            required required data-parsley-required-message="Enter Your Email"
+                            data-parsley-error-container="#email-error">
+                        <p id="email-error"></p>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password :</label>
+                        <input class="form-control" type="password" id="password" placeholder="Enter password"
+                            name="password" required data-parsley-required-message="Enter your password"
+                            data-parsley-pattern="^[A-Za-z0-9]+$"
+                            data-parsely-pattern-message="password should be combination of Letter and Numbers"
+                            data-parsley-error-container="#password-error">
+                        <p id="password-error"></p><br />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="reset" class="btn btn-danger">Clear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/parsley.js"></script>
+
+    <script>
+        $('#frm').parsley();
+        let frmdata = document.getElementById("frm");
+
+        frmdata.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let course = document.getElementById("course").value;
+            let year = document.getElementById("year").value;
+            
+
+
+            const signup = { "Name": name, "email": email,  "password": password,"Course": course, "Year": year };
+
+            localStorage.setItem("regUser", JSON.stringify(signup));
+
+            window.location.href = "login.html";
+
+        });
+
+    </script>
+
+</body>
+
+</html>

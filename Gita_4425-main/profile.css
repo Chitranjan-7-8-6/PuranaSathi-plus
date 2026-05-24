@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    transition: 0.3s;
+}
+
+nav a:hover{
+    color: #ffd700;
+}
+
+/* ================= PROFILE CARD ================= */
+
+.profile-container{
+    width: 380px;
+    margin: 60px auto;
+    background: linear-gradient(135deg, #4facfe, #00f2fe, #43e97b);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* IMAGE */
+
+.profile-image img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid white;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* TITLE */
+
+h2{
+    font-size: 26px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+/* INFO */
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    font-size: 16px;
+    color: #222;
+}
+
+.title{
+    font-weight: bold;
+}
+
+/* BUTTON */
+
+#remove{
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: crimson;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#remove:hover{
+    background: darkred;
+    transform: scale(1.05);
+}
+
+/* MESSAGE */
+
+#message{
+    margin-top: 15px;
+    color: green;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:500px){
+    .profile-container{
+        width: 90%;
+    }
+}

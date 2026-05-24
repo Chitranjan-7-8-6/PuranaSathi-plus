@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style4.css">
+<link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">Purana Sathi</div>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="find-friend.html">Find Friend</a>
+      <a href="add-friend.html">Add Friend</a>
+      <a href="profile.html" class="active">Profile</a>
+      <a href="about-us.html">About us</a>
+      <a href="contact-us.html">Contact us</a>
+    </nav>
+  </header>
+
+  <div class="profile-container">
+
+    <div class="profile-image">
+      <img src="./images/profile_avatar.png" alt="Profile Avatar">
+    </div>
+
+    <div id="profileData">
+
+      <h2>User Profile</h2>
+
+      <form>
+
+        <div class="info">
+          <span class="title">Name :</span>
+          <span id="name"></span>
+        </div>
+
+        <div class="info">
+          <span class="title">Email :</span>
+          <span id="email"></span>
+        </div>
+
+        <div class="info">
+          <span class="title">Course :</span>
+          <span id="cource"></span>
+        </div>
+
+        <div class="info">
+          <span class="title">Year :</span>
+          <span id="year"></span>
+        </div>
+
+        <button type="button" class="btn btn-danger" id="remove">
+          LogOut
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- Message -->
+    <p id="message" class="mt-3 text-success fw-bold"></p>
+
+  </div>
+
+  <script>
+
+    // Get data from localStorage
+    let userdata = JSON.parse(localStorage.getItem("regUser"));
+
+    // Check if data exists
+    if (userdata != null) {
+
+      document.getElementById("name").innerText =
+        userdata.Name;
+
+      document.getElementById("email").innerText =
+        userdata.email;
+
+      document.getElementById("cource").innerText =
+        userdata.Cource;
+
+      document.getElementById("year").innerText =
+        userdata.Year;
+
+    }
+
+    // Logout button
+    let removedata = document.getElementById("remove");
+
+    removedata.addEventListener("click", function () {
+
+      // Remove localStorage data
+      localStorage.removeItem("regUser");
+
+      // Hide profile
+      document.getElementById("profileData").style.display = "none";
+
+      // Success message
+      document.getElementById("message").innerHTML =
+        "Logout Successfully";
+
+      // Redirect after 2 seconds
+      setTimeout(function () {
+
+        window.location.replace("reg.html");
+
+      }, 2000);
+
+    });
+
+  </script>
+
+</body>
+
+</html>
